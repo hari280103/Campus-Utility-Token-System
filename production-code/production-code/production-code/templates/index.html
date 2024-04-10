@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Form</title>
+</head>
+<body>
+    <h1>Initiate Transaction</h1>
+    <form action="/initiateTransaction" method="post">
+        <label for="studentName">Student Name:</label>
+        <input type="text" name="studentName" required><br>
+
+        <label for="rollNumber">Roll Number:</label>
+        <input type="text" name="rollNumber" required><br>
+
+        <label for="academicYear">Academic Year:</label>
+        <input type="text" name="academicYear" required><br>
+
+        <label for="branch">Branch:</label>
+        <input type="text" name="branch" required><br>
+
+        <label for="studentAccount">Student Account:</label>
+        <input type="text" name="studentAccount" required><br>
+
+        <label for="amountEther">Amount (Ether):</label>
+        <input type="number" step="0.01" name="amountEther" required><br>
+
+        <label for="privateKey">Private Key:</label>
+        <input type="text" name="privateKey" required><br>
+
+        <input type="submit" value="Initiate Transaction">
+    </form>
+</body>
+</html>

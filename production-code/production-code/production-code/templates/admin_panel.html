@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px;
+            color: #007bff;
+            text-decoration: none;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Account Panel, {{ current_user.id }}!</h1>
+    
+    <h1>Transaction Details</h1>
+    
+    <table>
+        <tr>
+            <th>From</th>
+            <!-- <th>To</th> -->
+            <th>Amount (Wei)</th>
+            <th>Student Name</th>
+            <th>Roll Number</th>
+            <th>Academic Year</th>
+            <th>Branch</th>
+            <!-- <th>Transaction Hash</th> -->
+        </tr>
+        
+        {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction.from }}</td>
+            <!-- <td>{{ transaction.to }}</td> -->
+            <td>{{ transaction.amountEther }}</td>
+            <td>{{ transaction.studentName }}</td>
+            <td>{{ transaction.rollNumber }}</td>
+            <td>{{ transaction.academicYear }}</td>
+            <td>{{ transaction.branch }}</td>
+            <!-- <td>{{ transaction.transactionHash }}</td> -->
+        </tr>
+    {% endfor %}
+    </table>
+    
+    <a href="{{ url_for('admin_panel') }}">Back to Admin Panel</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
